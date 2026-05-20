@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --color-olive: #5B6B5C;
+  --color-forest: #1F2A20;
+  --color-ink: #1F1F1F;
+  --color-ivory: #F7F4EE;
+  --color-stone: #EEE7DC;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: Arial, Helvetica, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #F7F4EE;
+  color: #1F1F1F;
+}
+
+a {
+  text-decoration: none;
+}
+
+.section-pad {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding: 7rem 2.5rem;
+  }
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #5B6B5C;
+}
+
+.prose-brand p {
+  margin-top: 1rem;
+  line-height: 1.85;
+  color: rgb(31 31 31 / 0.72);
+}
+
+.prose-brand h2 {
+  margin-top: 2.5rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2rem;
+  letter-spacing: -0.03em;
+}

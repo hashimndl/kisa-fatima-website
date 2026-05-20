@@ -1,0 +1,7 @@
+<svg width="900" height="900" viewBox="0 0 900 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="900" fill="#CFC5B5"/>
+  <rect x="95" y="130" width="710" height="510" fill="#F7F4EE" fill-opacity=".35"/>
+  <path d="M190 640C280 500 380 440 495 455C620 472 700 565 760 760H190Z" fill="#1F2A20" fill-opacity=".18"/>
+  <circle cx="465" cy="315" r="95" fill="#5B6B5C" fill-opacity=".25"/>
+  <text x="105" y="790" font-family="Georgia, serif" font-size="50" fill="#1F1F1F" fill-opacity=".72">Speaking & Collaborations</text>
+</svg>

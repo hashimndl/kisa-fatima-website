@@ -1,0 +1,9 @@
+<svg width="900" height="1100" viewBox="0 0 900 1100" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="1100" fill="#DED7C9"/>
+  <circle cx="205" cy="160" r="360" fill="#F7F4EE" fill-opacity=".45"/>
+  <path d="M160 850C260 675 370 600 502 625C656 654 720 774 792 980H160Z" fill="#1F2A20" fill-opacity=".18"/>
+  <circle cx="485" cy="385" r="150" fill="#5B6B5C" fill-opacity=".22"/>
+  <rect x="170" y="835" width="560" height="2" fill="#1F1F1F" fill-opacity=".18"/>
+  <text x="88" y="970" font-family="Georgia, serif" font-size="54" fill="#1F1F1F" fill-opacity=".72">Kisa Fatima</text>
+  <text x="90" y="1020" font-family="Arial, sans-serif" font-size="22" letter-spacing="4" fill="#1F1F1F" fill-opacity=".55">EDITORIAL PORTRAIT PLACEHOLDER</text>
+</svg>
