@@ -7,8 +7,7 @@ const securityHeaders = [
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://vitals.vercel-insights.com https://va.vercel-scripts.com",
-      "frame-ancestors 'none'",
+     "connect-src 'self' https://*.sanity.io https://*.apicdn.sanity.io https://registry.npmjs.org https://vitals.vercel-insights.com https://va.vercel-scripts.com",
       "base-uri 'self'",
       "form-action 'self'"
     ].join("; ")
