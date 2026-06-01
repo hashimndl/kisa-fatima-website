@@ -1,126 +1,127 @@
 export type IconName =
-  | "arrow"
-  | "globe"
-  | "chart"
-  | "megaphone"
-  | "pen"
-  | "handshake"
-  | "trophy"
-  | "users"
-  | "mail";
+| "arrow"
+| "globe"
+| "chart"
+| "megaphone"
+| "pen"
+| "handshake"
+| "trophy"
+| "users"
+| "mail";
 
 export const site = {
-  name: "Kisa Fatima",
-  title: "Kisa Fatima — Strategic Visibility, PR & Executive Positioning",
-  description:
-    "Kisa Fatima helps founders, executives and innovative brands build authority through PR strategy, media narratives, thought leadership and strategic visibility.",
-  domain: process.env.NEXT_PUBLIC_SITE_URL || "https://kisafatima.com",
-  email: "kisahfatima@gmail.com",
-  linkedin: "https://www.linkedin.com/in/kisafatima/",
-  keywords: [
-    "Kisa Fatima",
-    "PR strategist",
-    "executive positioning",
-    "thought leadership",
-    "personal branding",
-    "founder visibility",
-    "media strategy",
-    "strategic communications",
-    "global partnerships"
-  ]
+name: "Kisa Fatima",
+title: "Kisa Fatima — AI-Powered Influencer Commerce & Brand Intelligence",
+description:
+"Kisa Fatima is building Pakistan's next-generation influencer commerce ecosystem through AI automation, strategic brand intelligence, campaign management and creator protection.",
+domain: process.env.NEXT_PUBLIC_SITE_URL || "https://kisafatima.com",
+email: "[kisahfatima@gmail.com](mailto:kisahfatima@gmail.com)",
+linkedin: "https://www.linkedin.com/in/kisafatima/",
+keywords: [
+"Kisa Fatima",
+"Influencer Management Pakistan",
+"AI Influencer Marketing",
+"Creator Economy Pakistan",
+"Influencer Commerce",
+"Campaign Automation",
+"Influencer Matchmaking",
+"Brand Intelligence",
+"Creator Protection",
+"Influencer Ecosystem"
+]
 };
 
 export const navItems = [
-  { label: "Home", href: "/" },
-  { label: "About", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Media", href: "/media" },
-  { label: "Insights", href: "/insights" },
-  { label: "Speaking", href: "/speaking" },
-  { label: "Contact", href: "/contact" }
+{ label: "Home", href: "/" },
+{ label: "About", href: "/about" },
+{ label: "Services", href: "/services" },
+{ label: "Media", href: "/media" },
+{ label: "Insights", href: "/insights" },
+{ label: "Speaking", href: "/speaking" },
+{ label: "Contact", href: "/contact" }
 ];
 
 export const services: Array<{ icon: IconName; title: string; text: string }> = [
-  {
-    icon: "megaphone",
-    title: "PR & Media Strategy",
-    text:
-      "Strategic media placements, founder-led narratives and expert commentary designed to build credibility, not noise."
-  },
-  {
-    icon: "users",
-    title: "Executive Positioning",
-    text:
-      "Positioning founders and leaders as trusted voices across business, AI, technology, sustainability and innovation."
-  },
-  {
-    icon: "pen",
-    title: "Thought Leadership",
-    text:
-      "Transforming complex expertise into sharp, resonant narratives that travel across industries and borders."
-  },
-  {
-    icon: "handshake",
-    title: "Partnerships & Growth",
-    text:
-      "Building strategic relationships that open new markets, strengthen authority and create measurable commercial impact."
-  }
+{
+icon: "users",
+title: "Influencer Management Ecosystem",
+text:
+"A structured creator network built around transparency, performance, campaign clarity and long-term creator-brand relationships."
+},
+{
+icon: "chart",
+title: "AI-Powered Influencer Matchmaking",
+text:
+"Using data, audience intelligence and automation to connect brands with the right creators at scale."
+},
+{
+icon: "megaphone",
+title: "Campaign Automation & Execution",
+text:
+"End-to-end campaign workflows, reporting systems and creator coordination powered by technology."
+},
+{
+icon: "handshake",
+title: "Legal Protection & Contract Management",
+text:
+"Protecting brands and creators through contracts, compliance, legal consultation and transparent engagement structures."
+}
 ];
 
 export const impact: Array<{ icon: IconName; value: string; label: string }> = [
-  {
-    icon: "globe",
-    value: "10M+",
-    label: "Campaign reach delivered in 15 days through executive and stakeholder coordination."
-  },
-  {
-    icon: "chart",
-    value: "$40K+",
-    label: "Revenue generated in Q4 2025 through consolidated global sales strategy."
-  },
-  {
-    icon: "trophy",
-    value: "O-1 / EB-1",
-    label: "Experience supporting evidence-backed extraordinary ability PR profiles."
-  },
-  {
-    icon: "users",
-    value: "50+",
-    label: "High-profile business owners onboarded with strong client satisfaction."
-  }
+{
+icon: "users",
+value: "1000+",
+label: "Influencers collaborated with across Pakistan."
+},
+{
+icon: "chart",
+value: "AI-Driven",
+label: "Automated influencer discovery and campaign workflows."
+},
+{
+icon: "handshake",
+value: "Protected",
+label: "Creator-brand partnerships supported by contracts and legal consultation."
+},
+{
+icon: "globe",
+value: "Pakistan",
+label: "Building the country's next-generation influencer commerce ecosystem."
+}
 ];
 
 export const posts = [
   {
-    slug: "visibility-without-narrative",
-    title: "Why Visibility Without Narrative Fails",
+    slug: "future-of-influencer-commerce",
+    title: "The Future of Influencer Commerce in Pakistan",
     description:
-      "Visibility is easy to chase. Authority requires a clear narrative, credible proof and consistent positioning.",
+      "How automation, AI and creator infrastructure will reshape influencer marketing.",
     date: "2026-05-01",
     readTime: "6 min read"
   },
   {
-    slug: "executive-branding-ai",
-    title: "The Future of Executive Branding in the AI Era",
+    slug: "why-ai-matchmaking-matters",
+    title: "Why AI-Powered Influencer Matchmaking Matters",
     description:
-      "How leaders can build trust and relevance as AI changes the way audiences evaluate expertise.",
+      "Moving beyond follower counts and toward intelligent creator-brand alignment.",
     date: "2026-05-04",
     readTime: "5 min read"
   },
   {
-    slug: "pr-is-no-longer-about-press",
-    title: "PR Is No Longer About Press",
+    slug: "creator-protection-economy",
+    title: "Creator Protection Is The Missing Layer",
     description:
-      "Modern PR is reputation architecture: a system of media, story, proof, distribution and long-term trust.",
+      "Why contracts, transparency and legal support are essential for a sustainable creator economy.",
     date: "2026-05-09",
     readTime: "4 min read"
   }
 ];
 
 export const trustedNames = [
-  "The Crimson PR",
-  "echooo.ai",
-  "Flint Global",
-  "Google",
-  "Bloomberg"
+"1000+ Influencers",
+"AI Automation",
+"Brand Intelligence",
+"Campaign Management",
+"Creator Protection"
 ];
