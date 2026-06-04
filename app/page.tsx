@@ -1,7 +1,15 @@
+import Image from "next/image";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import Icon from "@/components/Icon";
-import { impact, posts, services, trustedNames } from "@/lib/site";
+import { impact, posts, services } from "@/lib/site";
+
+const impactLinks = [
+  "/media",
+  "/services/ai-influencer-management",
+  "/services/creator-protection",
+  "/about"
+];
 
 export default function Home() {
   return (
@@ -14,7 +22,13 @@ export default function Home() {
             Ecosystem pillars
           </p>
           <div className="grid grid-cols-2 gap-7 font-serif text-2xl text-black/80 md:grid-cols-5">
-            {trustedNames.map((name) => (
+            {[
+              "1000+ Influencers",
+              "AI Automation",
+              "Brand Intelligence",
+              "Campaign Management",
+              "Creator Protection"
+            ].map((name) => (
               <span key={name}>{name}</span>
             ))}
           </div>
@@ -27,15 +41,18 @@ export default function Home() {
             <p className="mb-5 text-xs font-semibold uppercase tracking-[0.34em] text-[#B9C6A8]">
               About Kisa
             </p>
+
             <h2 className="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-6xl">
               Creator Economy Strategist. AI Systems Builder. Brand Intelligence Partner.
             </h2>
+
             <p className="mt-7 max-w-xl text-base leading-8 text-white/75">
               Kisa has collaborated with 1000+ influencers across Pakistan,
               building a next-generation influencer management ecosystem powered
               by AI automation, strategic brand intelligence, campaign workflows
               and creator protection.
             </p>
+
             <Link
               href="/about"
               className="mt-9 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-[#D8E0C9]"
@@ -44,9 +61,17 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="min-h-[420px] bg-[#DAD2C2] p-8 text-ink shadow-2xl shadow-black/20">
-            <div className="flex h-full flex-col justify-end border border-black/10 p-8">
-              <p className="font-serif text-3xl leading-tight">
+          <div className="relative min-h-[520px] overflow-hidden bg-[#DAD2C2] text-ink shadow-2xl shadow-black/20">
+            <Image
+  src="/images/kisa-working.jpg"
+  alt="Kisa Fatima working on influencer commerce strategy"
+  fill
+  sizes="(min-width: 1024px) 50vw, 100vw"
+  className="object-cover object-center"
+/>
+
+            <div className="absolute inset-x-6 bottom-6 border border-white/30 bg-white/70 p-7 backdrop-blur-xl">
+              <p className="font-serif text-2xl leading-tight md:text-3xl">
                 “We are not just managing influencers — we are shaping the
                 future of influencer commerce in Pakistan through automation,
                 data and innovation.”
@@ -66,10 +91,14 @@ export default function Home() {
 
         <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {services.map((service) => (
-            <div key={service.title} className="border-l border-black/15 pl-7">
+            <Link
+              key={service.title}
+              href={service.href}
+              className="group block border-l border-black/15 pl-7 transition hover:-translate-y-1"
+            >
               <Icon
                 name={service.icon}
-                className="mb-8 text-olive"
+                className="mb-8 text-olive transition group-hover:scale-110"
                 size={36}
                 strokeWidth={1.4}
               />
@@ -77,7 +106,10 @@ export default function Home() {
               <p className="mt-4 text-sm leading-7 text-black/65">
                 {service.text}
               </p>
-            </div>
+              <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-olive">
+                Learn More →
+              </p>
+            </Link>
           ))}
         </div>
       </section>
@@ -93,6 +125,7 @@ export default function Home() {
                 Building Infrastructure for Influencer Commerce
               </h2>
             </div>
+
             <p className="max-w-lg text-base leading-8 text-white/75">
               From AI-powered influencer matchmaking and campaign automation to
               legal protection and creator partnerships, Kisa is building the
@@ -101,11 +134,15 @@ export default function Home() {
           </div>
 
           <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {impact.map((item) => (
-              <div key={item.value} className="border-l border-white/15 px-7 py-3">
+            {impact.map((item, index) => (
+              <Link
+                key={item.value}
+                href={impactLinks[index] || "/media"}
+                className="group block border-l border-white/15 px-7 py-3 transition hover:-translate-y-1"
+              >
                 <Icon
                   name={item.icon}
-                  className="mb-6 text-[#B9C6A8]"
+                  className="mb-6 text-[#B9C6A8] transition group-hover:scale-110"
                   size={36}
                   strokeWidth={1.4}
                 />
@@ -113,7 +150,10 @@ export default function Home() {
                 <p className="mt-3 text-sm leading-6 text-white/70">
                   {item.label}
                 </p>
-              </div>
+                <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-[#B9C6A8]">
+                  Explore →
+                </p>
+              </Link>
             ))}
           </div>
         </div>
@@ -127,6 +167,7 @@ export default function Home() {
               Ideas on AI, Creators & Brand Growth
             </h2>
           </div>
+
           <Link
             href="/insights"
             className="hidden text-xs font-bold uppercase tracking-[0.18em] md:block"
@@ -140,7 +181,7 @@ export default function Home() {
             <Link
               key={post.slug}
               href={`/insights/${post.slug}`}
-              className="border border-black/10 bg-white/35 p-6 transition hover:bg-white/70"
+              className="border border-black/10 bg-white/35 p-6 transition hover:-translate-y-1 hover:bg-white/70 hover:shadow-xl"
             >
               <p className="text-xs uppercase tracking-[0.18em] text-black/45">
                 {post.readTime}
