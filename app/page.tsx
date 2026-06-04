@@ -2,8 +2,16 @@ import Link from "next/link";
 import Hero from "@/components/Hero";
 import Icon from "@/components/Icon";
 import { impact, posts, services } from "@/lib/site";
+import { sanityClient } from "@/lib/sanity.client";
+import { homepageQuery } from "@/lib/sanity.queries";
 
 const fallbackHomepage = {
+  eyebrow: "Kisa Fatima",
+  headline: "Building Pakistan's Next-Generation Influencer Commerce Ecosystem.",
+  intro:
+    "Kisa has collaborated with 1000+ influencers across Pakistan, building a creator ecosystem powered by AI automation, strategic brand intelligence, campaign workflows and creator protection.",
+  primaryCta: "Work With Kisa",
+  secondaryCta: "Explore Ecosystem",
   pillars: [
     "1000+ Influencers",
     "AI Automation",
@@ -21,7 +29,22 @@ const fallbackHomepage = {
 };
 
 async function getHomepage() {
-  return fallbackHomepage;
+  try {
+    const homepage = await sanityClient.fetch(homepageQuery, {}, {
+      next: { revalidate: 60 }
+    });
+
+    return {
+      ...fallbackHomepage,
+      ...(homepage || {}),
+      pillars:
+        Array.isArray(homepage?.pillars) && homepage.pillars.length > 0
+          ? homepage.pillars
+          : fallbackHomepage.pillars
+    };
+  } catch {
+    return fallbackHomepage;
+  }
 }
 
 export default async function Home() {
@@ -29,7 +52,7 @@ export default async function Home() {
 
   return (
     <main>
-      <Hero />
+      <Hero content={homepage} />
 
       <section className="border-y border-black/10 bg-[#FBFAF7]">
         <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[0.8fr_4fr] lg:px-10">
@@ -37,7 +60,7 @@ export default async function Home() {
             Ecosystem pillars
           </p>
           <div className="grid grid-cols-2 gap-7 font-serif text-2xl text-black/80 md:grid-cols-5">
-            {homepage.pillars.map((name) => (
+            {homepage.pillars.map((name: string) => (
               <span key={name}>{name}</span>
             ))}
           </div>
