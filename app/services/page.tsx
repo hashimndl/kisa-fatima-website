@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import Icon from "@/components/Icon";
 import { services } from "@/lib/site";
@@ -26,22 +27,18 @@ export default function Services() {
 
         <div className="mt-16 grid gap-8 md:grid-cols-2">
           {services.map((service) => (
-            <article
+            <Link
               key={service.title}
-              className="border border-black/10 bg-white/35 p-8"
+              href={service.href}
+              className="group block border border-black/10 bg-white/35 p-8 transition hover:-translate-y-1 hover:bg-white/70 hover:shadow-xl"
             >
-              <Icon
-                name={service.icon}
-                className="mb-8 text-olive"
-                size={40}
-              />
-
+              <Icon name={service.icon} className="mb-8 text-olive" size={40} />
               <h2 className="font-serif text-3xl">{service.title}</h2>
-
-              <p className="mt-5 leading-8 text-black/70">
-                {service.text}
+              <p className="mt-5 leading-8 text-black/70">{service.text}</p>
+              <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-olive">
+                Learn More →
               </p>
-            </article>
+            </Link>
           ))}
         </div>
 
