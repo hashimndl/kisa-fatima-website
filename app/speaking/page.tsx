@@ -44,14 +44,16 @@ export default function Speaking() {
           </Link>
         </div>
 
-        <div className="relative min-h-[460px] overflow-hidden">
-          <Image
-            src="/images/kisa-speaking.svg"
-            alt="Kisa Fatima speaking"
-            fill
-            className="object-cover"
-          />
-        </div>
+        <div className="relative min-h-[560px] overflow-hidden bg-[#DED7C9]">
+  <Image
+  src="/images/kisa-speaking.jpg"
+  alt="Kisa Fatima speaking"
+  fill
+  priority
+  sizes="(min-width: 1024px) 40vw, 100vw"
+  className="object-cover object-[42%_center]"
+/>
+</div>
       </section>
     </main>
   );

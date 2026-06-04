@@ -39,12 +39,13 @@ export default function Hero() {
 
       <div className="relative min-h-[520px] overflow-hidden bg-[#DED7C9] shadow-2xl shadow-black/10">
         <Image
-          src="/images/kisa-hero.svg"
-          alt="Kisa Fatima"
-          fill
-          priority
-          className="object-cover"
-        />
+  src="/images/kisa-hero.jpg"
+  alt="Kisa Fatima"
+  fill
+  priority
+  sizes="(min-width: 1024px) 50vw, 100vw"
+  className="object-cover"
+/>
 
         <div className="absolute inset-x-8 bottom-8 rounded-3xl border border-white/30 bg-white/40 p-6 backdrop-blur-xl">
           <p className="text-xs font-semibold uppercase tracking-[0.26em] text-forest">
