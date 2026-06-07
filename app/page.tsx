@@ -1,199 +1,113 @@
 import Image from "next/image";
 import Link from "next/link";
-import Hero from "@/components/Hero";
-import Icon from "@/components/Icon";
-import { impact, posts, services } from "@/lib/site";
-
-const impactLinks = [
-  "/media",
-  "/services/ai-influencer-management",
-  "/services/creator-protection",
-  "/about"
-];
+import KisaNav from "@/components/KisaNav";
+import KisaFooter from "@/components/KisaFooter";
+import { email, experience, platforms, services, stats, writing } from "@/lib/kisa-redesign";
 
 export default function Home() {
   return (
     <main>
-      <Hero />
+      <KisaNav />
 
-      <section className="border-y border-black/10 bg-[#FBFAF7]">
-        <div className="mx-auto grid max-w-7xl gap-6 px-6 py-8 lg:grid-cols-[0.8fr_4fr] lg:px-10">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-black/50">
-            Ecosystem pillars
-          </p>
-          <div className="grid grid-cols-2 gap-7 font-serif text-2xl text-black/80 md:grid-cols-5">
-            {[
-              "1000+ Influencers",
-              "AI Automation",
-              "Brand Intelligence",
-              "Campaign Management",
-              "Creator Protection"
-            ].map((name) => (
-              <span key={name}>{name}</span>
-            ))}
+      <section className="hero">
+        <div className="hero-left">
+          <div className="hero-tag">Operations · Marketing · Creator Strategy</div>
+          <h1 className="hero-h1">Where chaos becomes <em>a masterpiece.</em></h1>
+          <p className="hero-sub">Ten years. Four hundred creators. One campaign that hit 10 million people in 15 days. I am not a job title — I&apos;m the person who makes things actually happen.</p>
+          <div className="hero-btns">
+            <a href={`mailto:${email}`} className="btn-white">Work with me</a>
+            <Link href="#story" className="btn-outline-white">Read my story ↓</Link>
+          </div>
+        </div>
+        <div className="hero-right">
+          <Image src="/images/kisa-hero.jpg" alt="Kisa Fatima" fill priority sizes="(min-width: 900px) 48vw, 100vw" className="hero-photo" />
+          <div className="hero-photo-overlay" />
+          <div className="hero-stats-bar">
+            {stats.map((stat) => <div className="hero-stat" key={stat.label}><div className="hero-stat-n">{stat.value}</div><div className="hero-stat-l">{stat.label}</div></div>)}
           </div>
         </div>
       </section>
 
-      <section className="bg-forest text-ivory">
-        <div className="mx-auto grid max-w-7xl gap-10 section-pad lg:grid-cols-[0.9fr_1fr]">
-          <div>
-            <p className="mb-5 text-xs font-semibold uppercase tracking-[0.34em] text-[#B9C6A8]">
-              About Kisa
-            </p>
-
-            <h2 className="font-serif text-4xl leading-tight tracking-[-0.03em] md:text-6xl">
-              Creator Economy Strategist. AI Systems Builder. Brand Intelligence Partner.
-            </h2>
-
-            <p className="mt-7 max-w-xl text-base leading-8 text-white/75">
-              Kisa has collaborated with 1000+ influencers across Pakistan,
-              building a next-generation influencer management ecosystem powered
-              by AI automation, strategic brand intelligence, campaign workflows
-              and creator protection.
-            </p>
-
-            <Link
-              href="/about"
-              className="mt-9 inline-flex items-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-[#D8E0C9]"
-            >
-              Read More <Icon name="arrow" size={16} />
-            </Link>
-          </div>
-
-          <div className="relative min-h-[520px] overflow-hidden bg-[#DAD2C2] text-ink shadow-2xl shadow-black/20">
-            <Image
-  src="/images/kisa-working.jpg"
-  alt="Kisa Fatima working on influencer commerce strategy"
-  fill
-  sizes="(min-width: 1024px) 50vw, 100vw"
-  className="object-cover object-center"
-/>
-
-            <div className="absolute inset-x-6 bottom-6 border border-white/30 bg-white/70 p-7 backdrop-blur-xl">
-              <p className="font-serif text-2xl leading-tight md:text-3xl">
-                “We are not just managing influencers — we are shaping the
-                future of influencer commerce in Pakistan through automation,
-                data and innovation.”
-              </p>
-            </div>
-          </div>
+      <section className="logos-band">
+        <div className="logos-label">Worked with</div>
+        <div className="logos-row">
+          {['The Crimson PR', 'echooo.ai', 'Flint Global', 'Erasmus Mundus Association', 'AI Founder Review'].map((name) => <span className="logo-text" key={name}>{name}</span>)}
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl section-pad">
-        <div className="text-center">
-          <p className="eyebrow mb-4">What I Do</p>
-          <h2 className="font-serif text-4xl tracking-[-0.03em] md:text-6xl">
-            A Smarter System for Brands and Creators
-          </h2>
+      <section id="story" className="story-section">
+        <div className="story-left">
+          <div className="story-eyebrow">My Story</div>
+          <h2 className="story-h2">Started in science. Ended up <em>everywhere.</em></h2>
+          <p className="story-pull">Life is too short to only learn one thing. So I decided to learn everything that matters and get really, really good at all of it.</p>
+          <span className="story-tag">Pakistan · Italy · Denmark · Dubai · Remote</span>
         </div>
-
-        <div className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-          {services.map((service) => (
-            <Link
-              key={service.title}
-              href={service.href}
-              className="group block border-l border-black/15 pl-7 transition hover:-translate-y-1"
-            >
-              <Icon
-                name={service.icon}
-                className="mb-8 text-olive transition group-hover:scale-110"
-                size={36}
-                strokeWidth={1.4}
-              />
-              <h3 className="font-serif text-2xl">{service.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-black/65">
-                {service.text}
-              </p>
-              <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-olive">
-                Learn More →
-              </p>
-            </Link>
-          ))}
+        <div className="story-right">
+          <p className="big">Here&apos;s the honest version: <em>I was never meant to end up in marketing.</em></p>
+          <p>I graduated with a degree in <strong>Environmental Management</strong>. Before that, I won a <strong>fully-funded Erasmus Mundus Joint Master Degree</strong>, one of the most competitive scholarships in the world.</p>
+          <p>But while everyone around me was planning their environmental careers, I was quietly becoming something else entirely. I was writing. Communicating. <strong>Making people pay attention.</strong></p>
+          <p>For eight years, I poured that energy into the <strong>Erasmus Mundus Association</strong>. I wrote newsletters, led creative outreach, and helped shape campaigns that spoke to students across continents.</p>
+          <p>Then I moved into marketing not because I needed to pivot, but because I was <em>already doing it better than people trained for it.</em></p>
         </div>
       </section>
 
-      <section className="bg-[#111712] text-ivory">
-        <div className="mx-auto max-w-7xl section-pad">
-          <div className="grid gap-10 lg:grid-cols-[1fr_0.9fr]">
-            <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-[#B9C6A8]">
-                Featured Impact
-              </p>
-              <h2 className="font-serif text-4xl tracking-[-0.03em] md:text-6xl">
-                Building Infrastructure for Influencer Commerce
-              </h2>
-            </div>
+      <section className="ai-strip">
+        <div>
+          <h3>I run the AI. <em>The AI doesn&apos;t run me.</em></h3>
+          <p>Automation is a tool, not a replacement for thinking. I use AI strategically to work faster, build smarter, and free up space for the decisions that actually require a human.</p>
+          <div className="ai-tools">{['Notion','n8n','Claude Opus 4.8','AI Automation','Campaign Workflows','Agentic AI','AI Systems Building'].map((tool) => <span className="ai-tool" key={tool}>{tool}</span>)}</div>
+        </div>
+        <blockquote className="ai-quote">Automation handles the repetition. I handle the strategy, the story, and the soul.<span>— Kisa on working with AI</span></blockquote>
+      </section>
 
-            <p className="max-w-lg text-base leading-8 text-white/75">
-              From AI-powered influencer matchmaking and campaign automation to
-              legal protection and creator partnerships, Kisa is building the
-              infrastructure for Pakistan&apos;s next generation creator economy.
-            </p>
-          </div>
+      <section className="photo-strip">
+        <div className="photo-main"><Image src="/images/kisa-working.jpg" alt="Kisa Fatima working" width={900} height={900} /></div>
+        <div className="photo-text"><h3>From <em>Italy to Islamabad</em>, creative space is my ode to living on my own terms.</h3><p>This isn&apos;t a career. It&apos;s a creative practice. Every campaign, every piece of writing, every system I build is my safe space.</p></div>
+        <div className="photo-accent"><div className="photo-accent-label">Countries lived & worked in</div><div className="photo-accent-big">4+</div><div className="photo-accent-sub">Italy. Denmark. Dubai. Pakistan. Same hunger, different skylines.</div></div>
+      </section>
 
-          <div className="mt-14 grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-            {impact.map((item, index) => (
-              <Link
-                key={item.value}
-                href={impactLinks[index] || "/media"}
-                className="group block border-l border-white/15 px-7 py-3 transition hover:-translate-y-1"
-              >
-                <Icon
-                  name={item.icon}
-                  className="mb-6 text-[#B9C6A8] transition group-hover:scale-110"
-                  size={36}
-                  strokeWidth={1.4}
-                />
-                <p className="font-serif text-4xl">{item.value}</p>
-                <p className="mt-3 text-sm leading-6 text-white/70">
-                  {item.label}
-                </p>
-                <p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] text-[#B9C6A8]">
-                  Explore →
-                </p>
-              </Link>
-            ))}
-          </div>
+      <section className="services-section" id="services">
+        <div className="eyebrow">What I Do</div>
+        <h2 className="section-h2">Four things I do <em>exceptionally well.</em></h2>
+        <div className="services-grid">
+          {services.map((svc) => <Link href="/services" className="svc" key={svc.title}><div className="svc-accent" /><div className="svc-num">{svc.num}</div><h3 className="svc-title">{svc.title}</h3><p className="svc-desc">{svc.desc}</p><div className="svc-tags">{svc.tags.map((tag)=><span className="tag" key={tag}>{tag}</span>)}</div></Link>)}
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl section-pad">
-        <div className="mb-10 flex items-end justify-between gap-4">
-          <div>
-            <p className="eyebrow mb-4">Insights</p>
-            <h2 className="font-serif text-4xl tracking-[-0.03em] md:text-5xl">
-              Ideas on AI, Creators & Brand Growth
-            </h2>
-          </div>
-
-          <Link
-            href="/insights"
-            className="hidden text-xs font-bold uppercase tracking-[0.18em] md:block"
-          >
-            View all insights →
-          </Link>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
-          {posts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/insights/${post.slug}`}
-              className="border border-black/10 bg-white/35 p-6 transition hover:-translate-y-1 hover:bg-white/70 hover:shadow-xl"
-            >
-              <p className="text-xs uppercase tracking-[0.18em] text-black/45">
-                {post.readTime}
-              </p>
-              <h3 className="mt-4 font-serif text-2xl">{post.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-black/65">
-                {post.description}
-              </p>
-            </Link>
-          ))}
-        </div>
+      <section className="edu-banner">
+        <div className="edu-logo-wrap"><div className="edu-logo-box">Erasmus</div><div className="edu-logo-box">EMA</div></div>
+        <div className="edu-text"><h3>A fully-funded scholarship, a joint master degree, and <em>a world that opened up.</em></h3><p>I was awarded the prestigious Erasmus Mundus Joint Master Degree. It took me across borders, exposed me to world-class education, and gave me the perspective that still shapes how I think and work today.</p><span className="edu-badge">Erasmus Mundus Scholar · Fully Funded · Joint Master Degree</span></div>
       </section>
+
+      <section className="exp-section" id="experience">
+        <div className="eyebrow">Experience</div>
+        <h2 className="section-h2">Where I&apos;ve <em>built things.</em></h2>
+        <div className="exp-list">{experience.map((item)=><div className="exp-item" key={item.company}><div><div className="exp-co">{item.company}</div><div className="exp-period">{item.period}</div></div><div><h3 className="exp-role">{item.role}</h3><p className="exp-desc">{item.desc}</p>{item.badge && <span className="exp-badge">{item.badge}</span>}</div></div>)}</div>
+      </section>
+
+      <section className="creative-section">
+        <div><div className="creative-eyebrow">My Creative Space</div><h2 className="creative-h2">From Italy to Islamabad <em>this is my safe space.</em></h2><p className="creative-p">I&apos;ve lived in different countries, worked across time zones, and built things from scratch more times than I can count.</p><p className="creative-p">This website, this work, this story — it&apos;s not a portfolio. It&apos;s proof that when you refuse to be boxed in, interesting things happen.</p></div>
+        <div>{['The belief that drives everything|Life is too short to only learn one thing. I want to learn everything I want to learn and I’m not stopping until I do.','On AI & Automation|I run the AI. The AI doesn’t run me. Tools I use with intention, not dependency.','On building in public|I run a media company. I write. I manage campaigns. I share the process honestly because the messy middle is where the real story is.'].map((card)=><div className="creative-card" key={card}><div className="creative-card-label">{card.split('|')[0]}</div><div className="creative-card-text">{card.split('|')[1]}</div></div>)}</div>
+      </section>
+
+      <section className="creator-section" id="media">
+        <div><div className="eyebrow creator-eyebrow">Creator & Media Founder</div><h2 className="creator-h2">I don&apos;t just manage creators. I <em>am one.</em></h2><p className="creator-p">I run <strong>AI Founder Review</strong>, a media publication covering the people building the future of AI. Founder spotlights, leadership stories, and what it actually takes to build in the AI space.</p><p className="creator-p">I also create across social, sharing real, unfiltered ideas on marketing, operations, and the creator economy.</p><Link href="/media" className="btn-blue">Visit media page →</Link></div>
+        <div className="platform-grid">{platforms.map((p,i)=><div className={`platform-card ${i===0?'featured':''}`} key={p.name}><div className="platform-info"><div className="platform-icon-box">{p.icon}</div><div><div className="platform-name">{p.name}</div><div className="platform-handle">{p.handle}</div></div></div><span className="platform-badge">{p.badge}</span></div>)}</div>
+      </section>
+
+      <section className="writing-section" id="writing">
+        <div className="eyebrow">Featured Writing</div>
+        <h2 className="section-h2">Things I have actually <em>written.</em></h2>
+        <div className="writing-grid">{writing.map((w)=><Link href="/writing" key={w.title} className={`writing-card ${w.featured?'wc-featured':''}`}><div className="wc-pub">{w.publication}</div><h3 className="wc-title">{w.title}</h3><p className="wc-desc">{w.desc}</p></Link>)}</div>
+      </section>
+
+      <section id="contact" className="cta-section">
+        <h2>Let&apos;s build something <em>worth talking about.</em></h2>
+        <p>I&apos;m open to collaborations, advisory conversations, and the right full-time opportunities. If you&apos;re building something ambitious and need someone who can actually make it happen, let&apos;s talk.</p>
+        <div className="cta-row"><a className="btn-white" href={`mailto:${email}`}>Say hello</a><Link className="btn-outline-white" href="/contact">Contact details</Link></div>
+      </section>
+
+      <KisaFooter />
     </main>
   );
 }

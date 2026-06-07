@@ -1,66 +1,68 @@
-import Link from "next/link";
-import type { Metadata } from "next";
-import Icon from "@/components/Icon";
-import { services } from "@/lib/site";
+import KisaNav from "@/components/KisaNav";
+import KisaFooter from "@/components/KisaFooter";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "AI-powered influencer management, campaign automation, creator partnerships, legal protection and brand intelligence solutions."
-};
-
-export default function Services() {
+export default function ServicesPage() {
   return (
     <main>
-      <section className="mx-auto max-w-7xl section-pad">
-        <p className="eyebrow mb-5">Services</p>
+      <KisaNav />
 
-        <h1 className="max-w-4xl font-serif text-5xl leading-tight tracking-[-0.04em] md:text-7xl">
-          Building smarter systems for brands, creators and the future of influence.
+      <section className="page-hero">
+        <p className="eyebrow">Services</p>
+        <h1>
+          Four things I do <em>exceptionally well.</em>
         </h1>
-
-        <p className="mt-8 max-w-3xl text-lg leading-8 text-black/70">
-          Kisa combines AI automation, creator intelligence, campaign management
-          and legal protection to help brands and influencers work together more
-          efficiently, transparently and at scale.
+        <p>
+          Strategy and execution across operations, creator ecosystems,
+          marketing systems and content.
         </p>
+      </section>
 
-        <div className="mt-16 grid gap-8 md:grid-cols-2">
-          {services.map((service) => (
-            <Link
-              key={service.title}
-              href={service.href}
-              className="group block border border-black/10 bg-white/35 p-8 transition hover:-translate-y-1 hover:bg-white/70 hover:shadow-xl"
-            >
-              <Icon name={service.icon} className="mb-8 text-olive" size={40} />
-              <h2 className="font-serif text-3xl">{service.title}</h2>
-              <p className="mt-5 leading-8 text-black/70">{service.text}</p>
-              <p className="mt-8 text-xs font-bold uppercase tracking-[0.18em] text-olive">
-                Learn More →
-              </p>
-            </Link>
+      <section className="services-section">
+        <div className="services-grid">
+          {[
+            {
+              n: "01",
+              title: "Operations & Project Management",
+              desc: "Turning moving parts, teams, timelines and uncertainty into structured execution.",
+              tags: ["Systems", "Execution", "Delivery"]
+            },
+            {
+              n: "02",
+              title: "Influencer & Creator Management",
+              desc: "Managing creators, campaigns and brand relationships with clarity, structure and accountability.",
+              tags: ["Creators", "Campaigns", "Partnerships"]
+            },
+            {
+              n: "03",
+              title: "Marketing Strategy & Sales",
+              desc: "Building positioning, growth workflows and communication systems that support commercial outcomes.",
+              tags: ["Growth", "Sales", "Brand"]
+            },
+            {
+              n: "04",
+              title: "Content & Strategic Writing",
+              desc: "Translating complex ideas into sharp narratives, articles, founder stories and public-facing content.",
+              tags: ["Writing", "Story", "Voice"]
+            }
+          ].map((service) => (
+            <article className="svc" key={service.title}>
+              <div className="svc-accent" />
+              <p className="svc-num">{service.n}</p>
+              <h2 className="svc-title">{service.title}</h2>
+              <p className="svc-desc">{service.desc}</p>
+              <div className="svc-tags">
+                {service.tags.map((tag) => (
+                  <span className="tag" key={tag}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
           ))}
         </div>
-
-        <div className="mt-20 rounded-3xl bg-forest p-10 text-white">
-          <h2 className="font-serif text-4xl">
-            The Next Generation Influencer Ecosystem
-          </h2>
-
-          <p className="mt-6 max-w-3xl leading-8 text-white/80">
-            Our mission is to revolutionize the influencer industry by
-            integrating AI-powered creator discovery, automated campaign
-            workflows, contract management and legal consultation into one
-            seamless ecosystem.
-          </p>
-
-          <p className="mt-4 max-w-3xl leading-8 text-white/80">
-            We are not just managing influencers — we are building the
-            infrastructure that will define the future of influencer commerce in
-            Pakistan.
-          </p>
-        </div>
       </section>
+
+      <KisaFooter />
     </main>
   );
 }
