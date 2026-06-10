@@ -2,12 +2,35 @@ import Image from "next/image";
 import Link from "next/link";
 import KisaNav from "@/components/KisaNav";
 import KisaFooter from "@/components/KisaFooter";
-import {
-  email,
-  experience,
-  services,
-  stats,
-} from "@/lib/kisa-redesign";
+import { email, experience, services, stats } from "@/lib/kisa-redesign";
+
+const logoItems = [
+  {
+    src: "/images/the-crimson-pr.png",
+    alt: "The Crimson PR",
+    href: "#experience",
+  },
+  {
+    src: "/images/echooo-ai.png",
+    alt: "Echooo AI",
+    href: "#experience",
+  },
+  {
+    src: "/images/flint-global.png",
+    alt: "Flint Global",
+    href: "#experience",
+  },
+  {
+    src: "/images/erasmus-mundus-association.png",
+    alt: "Erasmus Mundus Association",
+    href: "#story",
+  },
+  {
+    src: "/images/ai-founder-review.png",
+    alt: "AI Founder Review",
+    href: "https://aifounderreview.com/",
+  },
+];
 
 const mediaPlatforms = [
   {
@@ -48,14 +71,17 @@ export default function Home() {
       <section className="hero">
         <div className="hero-left">
           <div className="hero-tag">Operations · Marketing · Creator Strategy</div>
+
           <h1 className="hero-h1">
             Where chaos becomes <em>a masterpiece.</em>
           </h1>
+
           <p className="hero-sub">
             Ten years. Four hundred creators. One campaign that hit 10 million
             people in 15 days. I am not a job title — I&apos;m the person who
             makes things actually happen.
           </p>
+
           <div className="hero-btns">
             <a href={`mailto:${email}`} className="btn-white">
               Work with me
@@ -68,7 +94,7 @@ export default function Home() {
 
         <div className="hero-right">
           <Image
-            src="/images/kisa-hero.jpg"
+            src="/images/kisa-fatima-in-nyhavn-copenhagen.png"
             alt="Kisa Fatima"
             fill
             priority
@@ -76,6 +102,7 @@ export default function Home() {
             className="hero-photo"
           />
           <div className="hero-photo-overlay" />
+
           <div className="hero-stats-bar">
             {stats.map((stat) => (
               <div className="hero-stat" key={stat.label}>
@@ -89,31 +116,41 @@ export default function Home() {
 
       <section className="logos-band">
         <div className="logos-label">Worked with</div>
+
         <div className="logos-row">
-          {[
-            "The Crimson PR",
-            "echooo.ai",
-            "Flint Global",
-            "Erasmus Mundus Association",
-            "AI Founder Review",
-          ].map((name) => (
-            <span className="logo-text" key={name}>
-              {name}
-            </span>
-          ))}
+          {logoItems.map((logo) =>
+            logo.href.startsWith("http") ? (
+              <a
+                key={logo.alt}
+                href={logo.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="logo-pill"
+              >
+                <Image src={logo.src} alt={logo.alt} width={150} height={54} />
+              </a>
+            ) : (
+              <Link key={logo.alt} href={logo.href} className="logo-pill">
+                <Image src={logo.src} alt={logo.alt} width={150} height={54} />
+              </Link>
+            )
+          )}
         </div>
       </section>
 
       <section id="story" className="story-section">
         <div className="story-left">
           <div className="story-eyebrow">My Story</div>
+
           <h2 className="story-h2">
             Started in science. Ended up <em>everywhere.</em>
           </h2>
+
           <p className="story-pull">
             Life is too short to only learn one thing. So I decided to learn
             everything that matters and get really, really good at all of it.
           </p>
+
           <span className="story-tag">
             Pakistan · Italy · Denmark · Dubai · Remote
           </span>
@@ -124,26 +161,31 @@ export default function Home() {
             Here&apos;s the honest version:{" "}
             <em>I was never meant to end up in marketing.</em>
           </p>
+
           <p>
             I graduated with a degree in <strong>Environmental Management</strong>.
             Before that, I won a{" "}
             <strong>fully-funded Erasmus Mundus Joint Master Degree</strong>, one
             of the most competitive scholarships in the world.
           </p>
+
           <p>
-            But while everyone around me was planning their environmental careers,
-            I was quietly becoming something else entirely. I was writing.
-            Communicating. <strong>Making people pay attention.</strong>
+            But while everyone around me was planning their environmental
+            careers, I was quietly becoming something else entirely. I was
+            writing. Communicating. <strong>Making people pay attention.</strong>
           </p>
+
           <p>
             For eight years, I poured that energy into the{" "}
-            <strong>Erasmus Mundus Association</strong>. I wrote newsletters, led
-            creative outreach, and helped shape campaigns that spoke to students
-            across continents.
+            <strong>Erasmus Mundus Association</strong>. I wrote newsletters,
+            led creative outreach, and helped shape campaigns that spoke to
+            students across continents.
           </p>
+
           <p>
-            Then I moved into marketing not because I needed to pivot, but because
-            I was <em>already doing it better than people trained for it.</em>
+            Then I moved into marketing not because I needed to pivot, but
+            because I was{" "}
+            <em>already doing it better than people trained for it.</em>
           </p>
         </div>
       </section>
@@ -153,11 +195,13 @@ export default function Home() {
           <h3>
             I run the AI. <em>The AI doesn&apos;t run me.</em>
           </h3>
+
           <p>
             Automation is a tool, not a replacement for thinking. I use AI
             strategically to work faster, build smarter, and free up space for
             the decisions that actually require a human.
           </p>
+
           <div className="ai-tools">
             {[
               "Notion",
@@ -191,17 +235,20 @@ export default function Home() {
             height={900}
           />
         </div>
+
         <div className="photo-text">
           <h3>
             From <em>Italy to Islamabad</em>, creative space is my ode to living
             on my own terms.
           </h3>
+
           <p>
             This isn&apos;t a career. It&apos;s a creative practice. Every
             campaign, every piece of writing, every system I build is my safe
             space.
           </p>
         </div>
+
         <div className="photo-accent">
           <div className="photo-accent-label">Countries lived & worked in</div>
           <div className="photo-accent-big">4+</div>
@@ -213,9 +260,11 @@ export default function Home() {
 
       <section className="services-section" id="services">
         <div className="eyebrow">What I Do</div>
+
         <h2 className="section-h2">
           Four things I do <em>exceptionally well.</em>
         </h2>
+
         <div className="services-grid">
           {services.map((svc) => (
             <Link href="/services" className="svc" key={svc.title}>
@@ -223,6 +272,7 @@ export default function Home() {
               <div className="svc-num">{svc.num}</div>
               <h3 className="svc-title">{svc.title}</h3>
               <p className="svc-desc">{svc.desc}</p>
+
               <div className="svc-tags">
                 {svc.tags.map((tag) => (
                   <span className="tag" key={tag}>
@@ -237,19 +287,34 @@ export default function Home() {
 
       <section className="edu-banner">
         <div className="edu-logo-wrap">
-          <div className="edu-logo-box">Erasmus</div>
-          <div className="edu-logo-box">EMA</div>
+          <Image
+            src="/images/erasmus-mundus.png"
+            alt="Erasmus Mundus"
+            width={120}
+            height={60}
+          />
+          <div className="edu-divider" />
+          <Image
+            src="/images/erasmus-mundus-association.png"
+            alt="Erasmus Mundus Association"
+            width={120}
+            height={60}
+          />
         </div>
+
         <div className="edu-text">
           <h3>
             A fully-funded scholarship, a joint master degree, and{" "}
             <em>a world that opened up.</em>
           </h3>
+
           <p>
             I was awarded the prestigious Erasmus Mundus Joint Master Degree. It
-            took me across borders, exposed me to world-class education, and gave
-            me the perspective that still shapes how I think and work today.
+            took me across borders, exposed me to world-class education, and
+            gave me the perspective that still shapes how I think and work
+            today.
           </p>
+
           <span className="edu-badge">
             Erasmus Mundus Scholar · Fully Funded · Joint Master Degree
           </span>
@@ -258,9 +323,11 @@ export default function Home() {
 
       <section className="exp-section" id="experience">
         <div className="eyebrow">Experience</div>
+
         <h2 className="section-h2">
           Where I&apos;ve <em>built things.</em>
         </h2>
+
         <div className="exp-list">
           {experience.map((item) => (
             <div className="exp-item" key={item.company}>
@@ -268,6 +335,7 @@ export default function Home() {
                 <div className="exp-co">{item.company}</div>
                 <div className="exp-period">{item.period}</div>
               </div>
+
               <div>
                 <h3 className="exp-role">{item.role}</h3>
                 <p className="exp-desc">{item.desc}</p>
@@ -281,13 +349,16 @@ export default function Home() {
       <section className="creative-section">
         <div>
           <div className="creative-eyebrow">My Creative Space</div>
+
           <h2 className="creative-h2">
             From Italy to Islamabad <em>this is my safe space.</em>
           </h2>
+
           <p className="creative-p">
-            I&apos;ve lived in different countries, worked across time zones, and
-            built things from scratch more times than I can count.
+            I&apos;ve lived in different countries, worked across time zones,
+            and built things from scratch more times than I can count.
           </p>
+
           <p className="creative-p">
             This website, this work, this story — it&apos;s not a portfolio.
             It&apos;s proof that when you refuse to be boxed in, interesting
@@ -312,19 +383,23 @@ export default function Home() {
       <section className="creator-section" id="media">
         <div>
           <div className="eyebrow creator-eyebrow">Creator & Media Founder</div>
+
           <h2 className="creator-h2">
             I don&apos;t just manage creators. I <em>am one.</em>
           </h2>
+
           <p className="creator-p">
             I run <strong>AI Founder Review</strong>, a media publication
             covering the people building the future of AI. Founder spotlights,
             leadership stories, and what it actually takes to build in the AI
             space.
           </p>
+
           <p className="creator-p">
             I also create across social, sharing real, unfiltered ideas on
             marketing, operations, and the creator economy.
           </p>
+
           <Link href="/media" className="btn-blue">
             Visit media page →
           </Link>
@@ -368,8 +443,8 @@ export default function Home() {
               Erasmus Mundus Association · Humans of Erasmus Mundus · Jun 2019
             </p>
             <h3 className="wc-title">
-              Kisa Fatima, Pakistan: Mediterranean Forestry and Natural Resources
-              Management (MEDFOR)
+              Kisa Fatima, Pakistan: Mediterranean Forestry and Natural
+              Resources Management (MEDFOR)
             </h3>
             <p className="wc-desc">
               A personal essay on independence, womanhood, and what it means to
@@ -398,9 +473,9 @@ export default function Home() {
               The #1 source for AI founder news, leadership and entrepreneurship
             </h3>
             <p className="wc-desc">
-              I founded and run this publication spotlighting the people building
-              AI. Their stories, decisions, and what it really takes to lead in
-              this space.
+              I founded and run this publication spotlighting the people
+              building AI. Their stories, decisions, and what it really takes to
+              lead in this space.
             </p>
             <span className="writing-link">Visit AI Founder Review →</span>
           </a>
@@ -429,11 +504,13 @@ export default function Home() {
         <h2>
           Let&apos;s build something <em>worth talking about.</em>
         </h2>
+
         <p>
           I&apos;m open to collaborations, advisory conversations, and the right
           full-time opportunities. If you&apos;re building something ambitious
           and need someone who can actually make it happen, let&apos;s talk.
         </p>
+
         <div className="cta-row">
           <a className="btn-white" href={`mailto:${email}`}>
             Say hello

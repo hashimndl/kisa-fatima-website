@@ -1,13 +1,14 @@
 import KisaNav from "@/components/KisaNav";
 import KisaFooter from "@/components/KisaFooter";
+import { experience } from "@/lib/kisa-redesign";
 
 export default function ExperiencePage() {
   return (
     <main>
       <KisaNav />
 
-      <section className="page-hero dark">
-        <p className="eyebrow yellow">Experience</p>
+      <section className="page-hero dark experience-hero">
+        <p className="eyebrow">Experience</p>
         <h1>
           Where I&apos;ve built, operated and <em>made things happen.</em>
         </h1>
@@ -17,42 +18,19 @@ export default function ExperiencePage() {
         </p>
       </section>
 
-      <section className="exp-section">
-        <div className="exp-list">
-          {[
-            {
-              company: "The Crimson PR",
-              role: "Operations, Marketing & Creator Strategy",
-              period: "Pakistan",
-              desc: "Worked across creator management, campaign coordination, brand communication and influencer operations."
-            },
-            {
-              company: "Echooo.ai",
-              role: "AI, Growth & Systems",
-              period: "AI / Creator Economy",
-              desc: "Supported AI-led workflows, growth strategy and creator-brand ecosystem development."
-            },
-            {
-              company: "Flint Global",
-              role: "Operations & Project Coordination",
-              period: "Global Business",
-              desc: "Worked across structured execution, stakeholder coordination and project delivery."
-            },
-            {
-              company: "Erasmus Mundus Association",
-              role: "Writer & Global Community Voice",
-              period: "Europe / Global",
-              desc: "Built international exposure through writing, storytelling, education and cross-cultural community work."
-            }
-          ].map((item) => (
-            <article className="exp-item" key={item.company}>
-              <div className="exp-meta">
-                <p className="exp-co">{item.company}</p>
-                <p className="exp-period">{item.period}</p>
+      <section className="experience-page-section">
+        <div className="experience-page-list">
+          {experience.map((item) => (
+            <article className="experience-page-item" key={item.company}>
+              <div className="experience-company">
+                <p>{item.company}</p>
+                <span>{item.period}</span>
               </div>
-              <div>
-                <h2 className="exp-role">{item.role}</h2>
-                <p className="exp-desc">{item.desc}</p>
+
+              <div className="experience-content">
+                <h2>{item.role}</h2>
+                <p>{item.desc}</p>
+                {item.badge && <span className="exp-badge">{item.badge}</span>}
               </div>
             </article>
           ))}

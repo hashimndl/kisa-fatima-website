@@ -2,6 +2,33 @@ import Image from "next/image";
 import KisaNav from "@/components/KisaNav";
 import KisaFooter from "@/components/KisaFooter";
 
+const mediaFeatures = [
+  {
+    pub: "AI Founder Review",
+    title: "Founder and AI ecosystem perspective",
+    desc: "Media presence around AI, innovation and entrepreneurship.",
+    href: "https://aifounderreview.com/",
+  },
+  {
+    pub: "LinkedIn",
+    title: "Thought leadership and professional voice",
+    desc: "Posts and commentary on operations, creator strategy, AI and career building.",
+    href: "https://www.linkedin.com/in/kisafatima/",
+  },
+  {
+    pub: "AI Time Journal",
+    title: "AI and innovation writing",
+    desc: "Public writing connected to technology, work and the future of business.",
+    href: "https://aitimejournal.com/profile/kisa-fatima",
+  },
+  {
+    pub: "Creator Ecosystem",
+    title: "Influencer and brand strategy",
+    desc: "Experience across creator management, brand partnerships and campaign execution.",
+    href: "/services",
+  },
+];
+
 export default function MediaPage() {
   return (
     <main>
@@ -26,15 +53,15 @@ export default function MediaPage() {
           </h2>
           <p className="creator-p">
             From founder interviews and published writing to LinkedIn thought
-            leadership and creator ecosystem work, Kisa brings both strategy
-            and lived experience to the media space.
+            leadership and creator ecosystem work, Kisa brings both strategy and
+            lived experience to the media space.
           </p>
 
           <a
             className="btn-blue"
             href="https://www.linkedin.com/in/kisafatima/"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
           >
             View LinkedIn
           </a>
@@ -45,8 +72,9 @@ export default function MediaPage() {
             src="/images/kisa-speaking.jpg"
             alt="Kisa Fatima speaking"
             fill
+            priority
             sizes="(min-width: 900px) 50vw, 100vw"
-            className="object-cover"
+            className="hero-photo"
           />
         </div>
       </section>
@@ -58,34 +86,29 @@ export default function MediaPage() {
         </h2>
 
         <div className="writing-grid">
-          {[
-            {
-              pub: "AI Founder Review",
-              title: "Founder and AI ecosystem perspective",
-              desc: "Media presence around AI, innovation and entrepreneurship."
-            },
-            {
-              pub: "LinkedIn",
-              title: "Thought leadership and professional voice",
-              desc: "Posts and commentary on operations, creator strategy, AI and career building."
-            },
-            {
-              pub: "AI Time Journal",
-              title: "AI and innovation writing",
-              desc: "Public writing connected to technology, work and the future of business."
-            },
-            {
-              pub: "Creator Ecosystem",
-              title: "Influencer and brand strategy",
-              desc: "Experience across creator management, brand partnerships and campaign execution."
-            }
-          ].map((item) => (
-            <article className="writing-card" key={item.title}>
-              <p className="wc-pub">{item.pub}</p>
-              <h3 className="wc-title">{item.title}</h3>
-              <p className="wc-desc">{item.desc}</p>
-            </article>
-          ))}
+          {mediaFeatures.map((item) =>
+            item.href.startsWith("http") ? (
+              <a
+                className="writing-card"
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <p className="wc-pub">{item.pub}</p>
+                <h3 className="wc-title">{item.title}</h3>
+                <p className="wc-desc">{item.desc}</p>
+                <span className="writing-link">Open →</span>
+              </a>
+            ) : (
+              <a className="writing-card" key={item.title} href={item.href}>
+                <p className="wc-pub">{item.pub}</p>
+                <h3 className="wc-title">{item.title}</h3>
+                <p className="wc-desc">{item.desc}</p>
+                <span className="writing-link">Explore →</span>
+              </a>
+            )
+          )}
         </div>
       </section>
 
